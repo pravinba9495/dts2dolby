@@ -31,7 +31,7 @@ dts2dolby -i INPUT.mkv
 ```
 
 ## Command Line Parameters
-```bash
+```
 -v  Enables verbose output (Optional)
 -i  Path to input file (Required)
 -c  Audio Codec to be added (Allowed values: 'ac3' or 'eac3'), (Optional, Default: 'ac3')
