@@ -9,7 +9,7 @@ As an avid Plex user and an audiophile, I like to have all my media at the best 
 
 Inspite of having top notch speeds, I occasionally find Plex trying to transcode my media files to be able to play on my streaming devices, instead of Direct Play or Direct Stream. Upon investigation I found out that my Xbox One S does not allow third party apps like Plex to be able to bitstream lossless audio codec. It however can bitstream any audio codec via the Blu-Ray app. Upon enabling the 'Playback Information' setting on Plex, I found out that the Plex App on the Xbox One S can bitstream Dolby Digital(AC3) and Dolby Digital Plus(EAC3) but none of the DTS(DCA) codecs.
 
-Since Dolby Digital is royatly free (due to expired patents), I decided to remux an AC3/EAC3 track back to the media files that do not have any AC3/EAC3 tracks in them, while still retaining lossless tracks in the source MKV. 
+Since Dolby Digital is royatly free (due to expired patents), I decided to remux an AC3/EAC3 track back to the media files that do not have any AC3/EAC3 tracks in them, while still retaining lossless tracks from the source MKV in the output MKV. 
 
 ## Requirements
 
