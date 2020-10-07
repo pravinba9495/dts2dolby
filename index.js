@@ -1,4 +1,5 @@
 const { argv } = require('yargs');
+const fs = require('fs');
 const { ffprobe, ffmpeg, rename } = require('./utils/bash');
 
 const transcodeCodec = 'ac3';
