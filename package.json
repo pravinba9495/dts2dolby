@@ -4,7 +4,7 @@
   "description": "Automatically add AC3/EAC3 tracks to source files when the source files contain only DTS tracks, useful for allowing Plex to Direct Play media on certain devices like the Xbox One, Chromecast, etc",
   "main": "index.js",
   "scripts": {
-    "prettify": "eslint --fix *.js && prettier --write *.js",
+    "prettify": "eslint --fix **/*.js && prettier --write **/*.js",
     "build": "pkg index.js --output ./bin/dts2dolby"
   },
   "repository": {
