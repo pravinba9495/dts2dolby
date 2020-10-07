@@ -23,7 +23,7 @@ const codecs_with_languages = streams.filter(stream => stream.codec_type === 'au
 		codec_name: stream.codec_name,
 		index: stream.index,
 		language: stream.tags ? (stream.tags.language || 'und') : 'und'
-	}
+	};
 });
 
 // Check the list of languages
@@ -36,7 +36,7 @@ languages.forEach((lang) => {
 			codec: c.codec_name,
 			index: c.index,
 			transcode: false
-		}
+		};
 	});
 });
 
@@ -59,16 +59,19 @@ let outputMappings = [
 	'-c:0 copy',
 ];
 
+let needsProcessing = false;
 languages.forEach((lang) => {
 	mappings[lang].forEach((stream) => {
 		inputMappings.push(`-map 0:${stream.index}`);
 		outputMappings.push(`-c:${inputMappings.length - 1} copy`);
 		if (stream.transcode) {
+			needsProcessing = true;
 			inputMappings.push(`-map 0:${stream.index}`);
 			outputMappings.push(`-c:${inputMappings.length - 1} ${transcodeCodec} -b:${inputMappings.length - 1} ${transcodeBitrate}`);
 		}
 	});
 });
+
 
 const params = inputMappings.concat(outputMappings).join(' ');
 
@@ -80,10 +83,13 @@ if (argv.v) {
 	console.log(`[PARAMS] ${params}`);
 }
 
-const result = ffmpeg(argv.i, params, argv.i.replace('.mkv', '-DTS.AC3.mkv'));
+if (needsProcessing) {
+	const result = ffmpeg(argv.i, params, argv.i.replace('.mkv', '-DTS.AC3.mkv'));
+	rename(argv.i, argv.i + '.orig');
+	fs.appendFileSync('./dts2dolby.log', result);
+} else {
+	console.log(`[RESULT] Nothing to process`);
+}
 
-rename(argv.i, argv.i + '.orig');
-
-fs.appendFileSync('./dts2dolby.log', result);
 
 
