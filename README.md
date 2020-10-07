@@ -15,7 +15,7 @@ Since Dolby Digital is royatly free (due to expired patents), I decided to remux
 
 1. `ffmpeg`: A complete, cross-platform solution to record, convert and stream audio and video.
 
-The documentations assumes that you have `ffmpeg` available in your path. `dts2dolby` uses `ffmpeg` as the backend.
+The documentation assumes that you have `ffmpeg` available in your path. `dts2dolby` uses `ffmpeg` as the backend.
 
 ## Usage
 
